@@ -1,2 +1,2 @@
-# platzi-store
-Curso de Pruebas unitarias con Jest
+# platzi-store-webpack
+Curso Práctico de Webpack
