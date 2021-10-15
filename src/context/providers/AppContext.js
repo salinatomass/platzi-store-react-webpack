@@ -3,6 +3,7 @@ import { createContext, useContext, useReducer } from 'react';
 import { appReducer, initialState } from '../reducers';
 import getData from '../../utils/getData';
 import { appActions } from '../actions';
+import { v4 as uuid } from 'uuid';
 
 const AppContext = createContext(initialState);
 
@@ -25,8 +26,14 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
-  const addToCart = product =>
-    dispatch({ type: appActions.ADD_TO_CART, payload: product });
+  const addToCart = product => {
+    const newId = uuid();
+
+    dispatch({
+      type: appActions.ADD_TO_CART,
+      payload: { ...product, id: newId },
+    });
+  };
 
   const removeFromCart = product =>
     dispatch({ type: appActions.REMOVE_FROM_CART, payload: product });
