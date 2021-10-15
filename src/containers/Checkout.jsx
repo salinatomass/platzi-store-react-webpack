@@ -1,6 +1,6 @@
 import React from 'react';
-import { useAppContext } from '../context/providers/AppContext';
-import '../styles/components/Checkout.styl';
+import { useAppContext } from '@context/providers/AppContext';
+import '@styles/components/Checkout.styl';
 
 const Checkout = () => {
   const { cart, removeFromCart } = useAppContext();

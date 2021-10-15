@@ -1,4 +1,4 @@
-import { appActions } from '../actions';
+import { appActions } from '@context/actions';
 
 export const initialState = {
   cart: [],

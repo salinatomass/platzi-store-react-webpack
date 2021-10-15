@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAppContext } from '../context/providers/AppContext';
+import { useAppContext } from '@context/providers/AppContext';
 
-import '../styles/components/Header.styl';
+import '@styles/components/Header.styl';
 
 const Header = () => {
   const { cart } = useAppContext();

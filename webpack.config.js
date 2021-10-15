@@ -14,6 +14,14 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@containers': path.resolve(__dirname, 'src/containers/'),
+      '@context': path.resolve(__dirname, 'src/context/'),
+      '@routes': path.resolve(__dirname, 'src/routes/'),
+      '@styles': path.resolve(__dirname, 'src/styles/'),
+      '@utils': path.resolve(__dirname, 'src/utils/'),
+    },
   },
   mode: 'production',
   module: {

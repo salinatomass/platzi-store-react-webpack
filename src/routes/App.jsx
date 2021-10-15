@@ -1,14 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from '../containers/Home';
-import Checkout from '../containers/Checkout';
-import Layout from '../components/Layout';
-import NotFound from '../containers/NotFound';
+import Home from '@containers/Home';
+import Checkout from '@containers/Checkout';
+import Layout from '@components/Layout';
+import NotFound from '@containers/NotFound';
 
-import {
-  ContextProvider,
-  useAppContext,
-} from '../context/providers/AppContext';
+import { ContextProvider, useAppContext } from '@context/providers/AppContext';
 
 const App = () => {
   const { isLoading } = useAppContext();

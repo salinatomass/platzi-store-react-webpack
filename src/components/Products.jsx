@@ -1,7 +1,6 @@
 import React from 'react';
-import { useAppContext } from '../context/providers/AppContext';
-
-import '../styles/components/Products.styl';
+import { useAppContext } from '@context/providers/AppContext';
+import '@styles/components/Products.styl';
 
 import Product from './Product';
 

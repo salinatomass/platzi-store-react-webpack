@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { createContext, useContext, useReducer } from 'react';
-import { appReducer, initialState } from '../reducers';
-import getData from '../../utils/getData';
-import { appActions } from '../actions';
+import { appReducer, initialState } from '@context/reducers';
+import getData from '@utils/getData';
+import { appActions } from '@context/actions';
 import { v4 as uuid } from 'uuid';
 
 const AppContext = createContext(initialState);
