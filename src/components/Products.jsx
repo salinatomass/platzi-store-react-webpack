@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
-import AppContext from '../context/AppContext';
+import React from 'react';
+import { useAppContext } from '../context/providers/AppContext';
+
 import '../styles/components/Products.styl';
+
 import Product from './Product';
 
 const Products = () => {
-  const { products } = useContext(AppContext);
+  const { products, addToCart } = useAppContext();
 
   const handleAddToCart = product => () => {
-    console.log(product);
+    addToCart(product);
   };
 
   return (
