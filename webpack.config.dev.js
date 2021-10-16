@@ -12,7 +12,7 @@ module.exports = {
     assetModuleFilename: 'assets/images/[hash][ext][query]',
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.tsx'],
     alias: {
       '@components': path.resolve(__dirname, 'src/components/'),
       '@containers': path.resolve(__dirname, 'src/containers/'),
@@ -46,6 +46,11 @@ module.exports = {
       {
         test: /\.(png|jpg)$/,
         type: 'asset',
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
       },
     ],
   },
