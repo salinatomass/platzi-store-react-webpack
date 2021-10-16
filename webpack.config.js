@@ -11,6 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    assetModuleFilename: 'assets/images/[hash][ext][query]',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -21,6 +22,7 @@ module.exports = {
       '@routes': path.resolve(__dirname, 'src/routes/'),
       '@styles': path.resolve(__dirname, 'src/styles/'),
       '@utils': path.resolve(__dirname, 'src/utils/'),
+      '@assets': path.resolve(__dirname, 'src/assets/'),
     },
   },
   mode: 'production',
@@ -42,6 +44,10 @@ module.exports = {
           'css-loader',
           'stylus-loader',
         ],
+      },
+      {
+        test: /\.(png|jpg)$/,
+        type: 'asset/resource',
       },
     ],
   },

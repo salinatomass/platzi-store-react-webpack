@@ -4,12 +4,17 @@ import { useAppContext } from '@context/providers/AppContext';
 
 import '@styles/components/Header.styl';
 
+import logo from '@assets/logo.png';
+
 const Header = () => {
   const { cart } = useAppContext();
   return (
     <div className="Header">
       <h1 className="Header-title">
-        <Link to="/">Platzi Store</Link>
+        <Link to="/">
+          <img src={logo} alt="Logo" />
+          Platzi Store
+        </Link>
       </h1>
       <div className="Header-checkout">
         <Link to="/checkout">
