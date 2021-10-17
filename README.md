@@ -1,2 +1,2 @@
-# platzi-store-webpack
-Curso Práctico de Webpack
+# platzi-store-react-webpack
+Curso Práctico de Webpack y Curso de Travis CI
