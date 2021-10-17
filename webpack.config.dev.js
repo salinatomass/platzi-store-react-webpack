@@ -5,10 +5,11 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
-  entry: './src/index.js',
+  // entry: ['react-hot-loader/patch', './src/index.js'],
+  entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     assetModuleFilename: 'assets/images/[hash][ext][query]',
   },
   resolve: {
@@ -61,6 +62,7 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     port: 3005,
+    // hot: true,
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -76,4 +78,9 @@ module.exports = {
       },
     }),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
 };
