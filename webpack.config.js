@@ -8,11 +8,15 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    home: './src/index.js',
+    header: './src/Header/index.js',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     assetModuleFilename: 'assets/images/[hash][ext][query]',
+    chunkFilename: '[name].bundle.js',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.tsx'],
@@ -63,7 +67,7 @@ module.exports = {
       filename: './index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].css',
+      filename: 'assets/css/[name].css',
     }),
     new CleanWebpackPlugin(),
     new ImageMinimizerPlugin({
@@ -75,5 +79,29 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        default: false,
+        commons: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          chunks: 'all',
+          name: 'commons',
+          filename: 'assets/chunks/common.[chunkhash].js',
+          reuseExistingChunk: true,
+          enforce: true,
+          priority: 20,
+        },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'all',
+          name: 'vendors',
+          filename: 'assets/chunks/vendor.[chunkhash].js',
+          reuseExistingChunk: true,
+          enforce: true,
+          priority: 10,
+        },
+      },
+    },
   },
 };
